@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.date{
+    display: flex;
+    align-items: center;
+}
+#date{
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+#monthAndYear{
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+#day{
+    font-size: 1rem;
+    font-weight: 400;
+}

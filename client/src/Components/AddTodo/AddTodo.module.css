@@ -1,0 +1,16 @@
+.addTodo{
+    background-color: rgb(84 219 136);
+    display: inline-flex;
+    border-radius: 50%;
+    padding: 20px;
+    position: absolute;
+    bottom:-6.5%;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.addTodo svg{
+    opacity: 0.3;
+}
