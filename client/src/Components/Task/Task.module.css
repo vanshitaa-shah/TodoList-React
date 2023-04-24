@@ -1,0 +1,16 @@
+.taskcontainer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.taskContent{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgb(189, 189, 189);
+}
+
+.taskcontainer img{
+    cursor: pointer;
+}
