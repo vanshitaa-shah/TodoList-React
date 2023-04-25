@@ -1,17 +1,16 @@
 // Imports
 import React from 'react'
 import checkedTask from '../../Assets/checkedTask.png'
-// Import of style module
 import TaskStyle from './Task.module.css'
 
-// Function Component
-const CheckedTask = () => {
+// Function Component stateless
+const CheckedTask = ({ content }) => {
     return (
         <div className={TaskStyle.taskcontainer}>
-            <span className={TaskStyle.taskContent}>Complete Practical-2</span>
+            <span className={TaskStyle.taskContent}>{content}</span>
             <img className={TaskStyle.image} src={checkedTask} alt="" width={25} />
         </div>
     )
 }
 
-export default React.memo(CheckedTask);
+export default CheckedTask;
