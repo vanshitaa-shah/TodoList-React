@@ -2,7 +2,7 @@
 import React from 'react'
 import DateStyle from './DateHeader.module.css'
 
-// Class component
+// Class component,pure Component
 class DateHeader extends React.Component {
     // constructor method
     constructor(props) {

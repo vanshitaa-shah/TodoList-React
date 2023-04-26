@@ -17,6 +17,7 @@ const App = () => {
     localStorage.setItem('todoList', JSON.stringify(todoList))
   }, [todoList])
 
+  // Logic for Expiration of Tasks
   useEffect(() => {
     const currentDate = new Date().toLocaleDateString();
     const previousDate = localStorage.getItem('date');
@@ -52,6 +53,7 @@ const App = () => {
       setIsClicked(false)
   }
 
+  // Checking and unchecking of tasks
   const taskHandler = (item) => {
     const index = todoList.findIndex(todo => todo.id === item.id)
     todoList[index].isChecked = todoList[index].isChecked ? false : true;
