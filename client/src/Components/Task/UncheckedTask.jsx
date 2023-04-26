@@ -4,11 +4,11 @@ import uncheckedTask from '../../Assets/uncheckedTask.png'
 import TaskStyle from './Task.module.css'
 
 // Function Component stateless
-const UncheckedTask = ({ content }) => {
+const UncheckedTask = ({ content, onClick }) => {
     return (
         <div className={TaskStyle.taskcontainer}>
             <span>{content}</span>
-            <img className={TaskStyle.image} src={uncheckedTask} alt="" width={25} />
+            <img className={TaskStyle.image} src={uncheckedTask} onClick={onClick} alt="" width={25} />
         </div>
     )
 }

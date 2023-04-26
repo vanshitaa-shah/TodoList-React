@@ -4,20 +4,25 @@ import DateHeader from './Components/DateHeader/DateHeader'
 import TodoList from './Components/TodoList/TodoList'
 import AddTodo from './Components/AddTodo/AddTodo'
 import './App.css'
+import { v4 } from 'uuid'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
 const App = () => {
   const [isclicked, setIsClicked] = useState(false);
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem('todoList')) || []);
 
   // Fetching data from local storage
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('todoList'))
-    if (!data)
-      setTodoList([])
-    else {
-      setTodoList(data)
+    localStorage.setItem('todoList', JSON.stringify(todoList))
+  }, [todoList])
+
+  useEffect(() => {
+    const currentDate = new Date().toLocaleDateString();
+    const previousDate = localStorage.getItem('date');
+    if (currentDate !== previousDate) {
+      localStorage.clear();
+      localStorage.setItem('date', currentDate);
     }
   }, [])
 
@@ -34,18 +39,23 @@ const App = () => {
         alert("please enter the task")
       }
       else {
-        console.log(todoList);
-        todoList.push({
+        setTodoList([...todoList, {
+          id: v4(),
           content: content,
           isChecked: false
-        })
-        setTodoList(todoList)
+        }])
         e.target.value = ''
-        localStorage.setItem('todoList', JSON.stringify(todoList))
+
       }
     }
     else if (e.key === 'Escape')
       setIsClicked(false)
+  }
+
+  const taskHandler = (item) => {
+    const index = todoList.findIndex(todo => todo.id === item.id)
+    todoList[index].isChecked = todoList[index].isChecked ? false : true;
+    setTodoList([...todoList])
   }
 
   return (
@@ -53,7 +63,7 @@ const App = () => {
       <div className="container">
         {/* Components and passing props to them */}
         <DateHeader />
-        <TodoList />
+        <TodoList todoList={todoList} taskHandler={taskHandler} />
         <AddTodo isclicked={isclicked} onClick={buttonHandler} onKeyDown={inputHandler} />
       </div>
     </div>

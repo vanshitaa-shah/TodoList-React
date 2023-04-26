@@ -4,32 +4,22 @@ import CheckedTask from '../Task/CheckedTask'
 import UncheckedTask from '../Task/UncheckedTask'
 import NoTodo from '../../Assets/No_Task.png'
 import ListStyle from './TodoList.module.css'
-import { useEffect } from 'react'
+import { useState } from 'react'
 
-const TodoList = () => {
-    const todoList = [
-        {
-            id: "123",
-            content: "this is checked",
-            ischecked: true
-        },
-    ]
+const TodoList = ({ todoList, taskHandler }) => {
     return (
         <div className={ListStyle.listContainer}>
             {todoList.length > 0 ? (
                 todoList.map(item =>
-                    item.ischecked ? (
-                        <CheckedTask content={item.content} />
+                    item.isChecked ? (
+                        <CheckedTask key={item.id} content={item.content} onClick={() => taskHandler(item)} />
                     ) : (
-
-                        <UncheckedTask content={item.content} />
+                        <UncheckedTask key={item.id} content={item.content} onClick={() => taskHandler(item)} />
                     )
-
                 )
+            ) : (
+                <img src={NoTodo} className={ListStyle.noData} alt="a" width={250} />
             )
-                : (
-                    <img src={NoTodo} className={ListStyle.noData} alt="a" width={250} />
-                )
             }
         </div>
     )
