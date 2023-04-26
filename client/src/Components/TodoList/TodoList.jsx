@@ -4,11 +4,11 @@ import CheckedTask from '../Task/CheckedTask'
 import UncheckedTask from '../Task/UncheckedTask'
 import NoTodo from '../../Assets/No_Task.png'
 import ListStyle from './TodoList.module.css'
-import { useState } from 'react'
 
 const TodoList = ({ todoList, taskHandler }) => {
     return (
         <div className={ListStyle.listContainer}>
+            {/* Filtering of tasks based on completion */}
             {todoList.length > 0 ? (
                 todoList.map(item =>
                     item.isChecked ? (
