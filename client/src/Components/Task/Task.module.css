@@ -7,7 +7,12 @@
 
 .taskContent{
     overflow: hidden;
+    max-width: 15rem;
+    white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+#checkedTask{
     color: rgb(189, 189, 189);
 }
 

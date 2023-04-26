@@ -7,7 +7,8 @@ import TaskStyle from './Task.module.css'
 const CheckedTask = ({ content, onClick }) => {
     return (
         <div className={TaskStyle.taskcontainer}>
-            <span className={TaskStyle.taskContent}>{content}</span>
+            <span title={content.length > 25 ? content : ''} className={TaskStyle.taskContent} id={TaskStyle.checkedTask}>{content}</span>
+
             <img className={TaskStyle.image} src={checkedTask} onClick={onClick} alt="" width={25} />
         </div>
     )
