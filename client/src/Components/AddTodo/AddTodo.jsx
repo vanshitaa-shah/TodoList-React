@@ -7,6 +7,7 @@ import { useState } from 'react';
 const AddTodo = (props) => {
     return (
         <>
+            {props.showError && <div className={Style.error}>! Please enter task</div>}
             {/* Logic for toggling bewteen input and add button */}
             {props.isclicked ? (
                 <input
