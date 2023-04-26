@@ -13,4 +13,5 @@
 
 .taskcontainer img{
     cursor: pointer;
+    -webkit-user-drag: none;
 }

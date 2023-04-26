@@ -2,25 +2,27 @@
 import React from 'react'
 import CheckedTask from '../Task/CheckedTask'
 import UncheckedTask from '../Task/UncheckedTask'
-//Imported style module 
+import NoTodo from '../../Assets/No_Task.png'
 import ListStyle from './TodoList.module.css'
-const TodoList = () => {
+import { useState } from 'react'
+
+const TodoList = ({ todoList, taskHandler }) => {
     return (
         <div className={ListStyle.listContainer}>
-            {/* Tasks */}
-            <CheckedTask />
-            <CheckedTask />
-            <CheckedTask />
-            <UncheckedTask />
-            <UncheckedTask />
-            <UncheckedTask />
-            <UncheckedTask />
-            <UncheckedTask />
-            <UncheckedTask />
-            <UncheckedTask />
-            <UncheckedTask />
+            {todoList.length > 0 ? (
+                todoList.map(item =>
+                    item.isChecked ? (
+                        <CheckedTask key={item.id} content={item.content} onClick={() => taskHandler(item)} />
+                    ) : (
+                        <UncheckedTask key={item.id} content={item.content} onClick={() => taskHandler(item)} />
+                    )
+                )
+            ) : (
+                <img src={NoTodo} className={ListStyle.noData} alt="a" width={250} />
+            )
+            }
         </div>
     )
 }
 
-export default React.memo(TodoList);
+export default TodoList;

@@ -2,8 +2,22 @@
     height: 75%;
     margin:25px 0px;
     overflow: scroll;
+    position: relative;
 }
-
+.listContainer .noData{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+    opacity:0.5;
+    -webkit-user-drag: none;
+}
+.listContainer h1{
+    position: absolute;
+    color: rgb(84 219 136);
+    top: 70%;
+    left: 17%;
+}
 ::-webkit-scrollbar{
     display: none;
 }

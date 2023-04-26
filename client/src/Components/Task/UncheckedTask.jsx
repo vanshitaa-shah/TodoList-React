@@ -1,17 +1,16 @@
-// Import of style module
+// Imports
 import React from 'react'
-import checkedTask from '../../Assets/uncheckedTask.png'
-// Import of style module
+import uncheckedTask from '../../Assets/uncheckedTask.png'
 import TaskStyle from './Task.module.css'
 
-// Function Component
-const UncheckedTask = () => {
+// Function Component stateless
+const UncheckedTask = ({ content, onClick }) => {
     return (
         <div className={TaskStyle.taskcontainer}>
-            <span>Complete Practical-2</span>
-            <img className={TaskStyle.image} src={checkedTask} alt="" width={25} />
+            <span>{content}</span>
+            <img className={TaskStyle.image} src={uncheckedTask} onClick={onClick} alt="" width={25} />
         </div>
     )
 }
 
-export default React.memo(UncheckedTask);
+export default UncheckedTask;

@@ -9,8 +9,22 @@
     transform: translate(-50%);
     font-size: 1.8rem;
     cursor: pointer;
+    border: none;
 }
 
 .addTodo svg{
     opacity: 0.3;
+}
+
+.input{
+    width: 100%;
+    padding: 10px;
+    border:2px solid rgb(142, 185, 159) ;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.input:focus{
+    border:2px solid rgb(84 219 136);
+    outline: none;
 }
