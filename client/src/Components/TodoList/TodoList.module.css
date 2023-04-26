@@ -10,6 +10,7 @@
     left: 50%;
     transform: translate(-50%);
     opacity:0.5;
+    -webkit-user-drag: none;
 }
 .listContainer h1{
     position: absolute;
