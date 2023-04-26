@@ -6,10 +6,10 @@ import TaskStyle from './Task.module.css'
 // Function Component stateless
 const CheckedTask = ({ content, onClick }) => {
     return (
-        <div className={TaskStyle.taskcontainer}>
+        <div className={TaskStyle.taskcontainer} onClick={onClick}>
             <span title={content.length > 25 ? content : ''} className={TaskStyle.taskContent} id={TaskStyle.checkedTask}>{content}</span>
 
-            <img className={TaskStyle.image} src={checkedTask} onClick={onClick} alt="" width={25} />
+            <img className={TaskStyle.image} src={checkedTask} alt="" width={25} />
         </div>
     )
 }

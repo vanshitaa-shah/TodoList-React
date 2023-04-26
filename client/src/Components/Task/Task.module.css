@@ -20,3 +20,8 @@
     cursor: pointer;
     -webkit-user-drag: none;
 }
+
+.taskcontainer:hover .taskContent{
+    transform: scale(0.95);
+    transition: 0.1s;
+}

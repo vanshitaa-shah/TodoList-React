@@ -10,6 +10,7 @@ import { useEffect } from 'react'
 
 const App = () => {
   const [isclicked, setIsClicked] = useState(false);
+  const [showError, setShowError] = useState(false);
   const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem('todoList')) || []);
 
   // Fetching data from local storage
@@ -37,7 +38,10 @@ const App = () => {
     if (e.key === 'Enter') {
       const content = e.target.value.trim();
       if (!content) {
-        alert("please enter the task")
+        setShowError(true);
+        setTimeout(() => {
+          setShowError(false)
+        }, 1000)
       }
       else {
         setTodoList([...todoList, {
@@ -66,7 +70,7 @@ const App = () => {
         {/* Components and passing props to them */}
         <DateHeader />
         <TodoList todoList={todoList} taskHandler={taskHandler} />
-        <AddTodo isclicked={isclicked} onClick={buttonHandler} onKeyDown={inputHandler} />
+        <AddTodo isclicked={isclicked} onClick={buttonHandler} onKeyDown={inputHandler} showError={showError} />
       </div>
     </div>
   )
