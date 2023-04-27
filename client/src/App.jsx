@@ -13,20 +13,21 @@ const App = () => {
   const [showError, setShowError] = useState(false);
   const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem('todoList')) || []);
 
-  // Fetching data from local storage
-  useEffect(() => {
-    localStorage.setItem('todoList', JSON.stringify(todoList))
-  }, [todoList])
-
   // Logic for Expiration of Tasks
   useEffect(() => {
     const currentDate = new Date().toLocaleDateString();
     const previousDate = localStorage.getItem('date');
     if (currentDate !== previousDate) {
       localStorage.clear();
+      setTodoList([]);
       localStorage.setItem('date', currentDate);
     }
   }, [])
+
+  // Fetching data from local storage
+  useEffect(() => {
+    localStorage.setItem('todoList', JSON.stringify(todoList))
+  }, [todoList])
 
   // button handler
   const buttonHandler = () => {
