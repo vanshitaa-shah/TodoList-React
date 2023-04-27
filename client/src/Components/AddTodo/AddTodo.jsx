@@ -2,7 +2,6 @@
 import React from 'react'
 import Style from './AddTodo.module.css'
 import { GrAdd } from "react-icons/gr";
-import { useState } from 'react';
 
 const AddTodo = (props) => {
     return (
