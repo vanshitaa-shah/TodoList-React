@@ -9,6 +9,7 @@
 - Added functionality for marking Todos done & undone.
 - On new Day,older Todos will get automatically discarded.
 - Used localstorage for storing data.
+- Added delete task functionality
 
 
 ### How to Use?
